@@ -56,7 +56,7 @@
                 <StackPanel Margin="10" Orientation="Horizontal">
                     <TextBlock>
                         <materialDesign:PackIcon Kind="CasinoChip"  Width="40" Height="40" Foreground="Silver"/>
-                        <TextBlock Text="CashFlow" Foreground="Silver" FontSize="18" FontFamily="Impact" Margin="0 -8 0 0"/>
+                        <TextBlock Text="CashFlow" Foreground="Silver" FontSize="18" FontFamily="Impact" Margin="0 -12 0 0"/>
                     </TextBlock>
                 </StackPanel>
 
@@ -133,6 +133,7 @@
                             </DataTemplate>
                         </Button.ContentTemplate>
                     </Button>
+                    
                 </StackPanel>
             </StackPanel>
         </Border>

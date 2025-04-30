@@ -60,7 +60,8 @@ namespace FinanceApp
 
         private void CategoriesBtn_Click(object sender, RoutedEventArgs e)
         {
-          
+            MainContent.Content = new CategoriesPage(_currentUser);
+            SetActiveButton(CategoriesBtn);
         }
 
         private void BudgetsBtn_Click(object sender, RoutedEventArgs e)
