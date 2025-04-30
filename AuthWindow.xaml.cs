@@ -35,7 +35,7 @@ namespace FinanceApp
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            var login = LoginTextBox.Text.Trim();
+            var login = LoginTextBox.Text;
 
             if (string.IsNullOrWhiteSpace(login))
             {
