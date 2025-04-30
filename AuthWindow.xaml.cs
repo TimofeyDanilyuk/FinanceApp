@@ -35,7 +35,7 @@ namespace FinanceApp
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            var login = LoginTextBox.Text.Trim();
+            var login = LoginTextBox.Text;
 
             if (string.IsNullOrWhiteSpace(login))
             {
@@ -64,14 +64,13 @@ namespace FinanceApp
                     }
                     else
                     {
-                        MessageBox.Show("Пользователь найден. Можете войти.",
-                                      "Успешно",
-                                      MessageBoxButton.OK,
-                                      MessageBoxImage.Information);
+                        var user = db.Users
+                            .Where(x => x.Login == login)
+                            .FirstOrDefault();
 
-                        // var mainWindow = new MainWindow();
-                        // mainWindow.Show();
-                        // this.Close();
+                        var mainWindow = new MainWindow(user);
+                        mainWindow.Show();
+                        this.Close();
                     }
                 }
             }

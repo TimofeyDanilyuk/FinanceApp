@@ -64,10 +64,14 @@ namespace FinanceApp
             {
                 FIO = fullName,
                 Login = login,
-                Password = password
+                Password = password,
+                TelegramNumber = "0",
+                TLChatId = 0,
+                TLUserName = "0"
             };
 
             context.Users.Add(newUser);
+            context.SaveChanges();
 
             MessageBox.Show("Регистрация прошла успешно!", "Успех",
                 MessageBoxButton.OK, MessageBoxImage.Information);
