@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinanceApp"
         mc:Ignorable="d"
-        Title="Регистрация" Height="480" Width="400" WindowStartupLocation="CenterScreen"
+        Title="Регистрация" Height="490" Width="340" WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
     <Window.Resources>
