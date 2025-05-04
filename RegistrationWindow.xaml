@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinanceApp"
         mc:Ignorable="d"
-        Title="Регистрация" Height="490" Width="340" WindowStartupLocation="CenterScreen"
+        Title="Регистрация" Height="500" Width="340" WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
     <Window.Resources>
@@ -86,24 +86,33 @@
         </Style>
 
         <!-- Стиль для PasswordBox -->
-        <Style TargetType="PasswordBox" x:Key="RoundedPasswordBox">
+        <Style TargetType="PasswordBox">
             <Setter Property="Background" Value="#FF2D2D2D"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="#FF6A6A6A"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="10"/>
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="Height" Value="45"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="PasswordBox">
                         <Border x:Name="border" 
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="4">
-                            <ScrollViewer x:Name="PART_ContentHost"/>
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="4"
+                Padding="0">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                        Margin="0,9,0,0"/>
                         </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF7A7A7A"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF7A7A7A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -134,14 +143,12 @@
             <TextBlock Text="Пароль" 
                            Foreground="#FFCCCCCC" 
                            Margin="0 10 0 5"/>
-            <PasswordBox x:Name="PasswordBox"
-                            Style="{StaticResource RoundedPasswordBox}"/>
+            <PasswordBox x:Name="PasswordBox"/>
 
             <TextBlock Text="Подтверждение пароля" 
                            Foreground="#FFCCCCCC" 
                            Margin="0 10 0 5"/>
-            <PasswordBox x:Name="ConfirmPasswordBox"
-                            Style="{StaticResource RoundedPasswordBox}"/>
+            <PasswordBox x:Name="ConfirmPasswordBox"/>
 
             <Button x:Name="RegisterButton" 
                         Content="Зарегистрироваться" 
