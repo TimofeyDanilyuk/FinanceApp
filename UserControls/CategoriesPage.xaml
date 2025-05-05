@@ -278,9 +278,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0">
+        <StackPanel Margin="0 26 0 0" Grid.Column="0">
             <TextBox Style="{StaticResource ModernTextBox}" 
                      Tag="Введите название категории"
+                     Text="{Binding CategoryName, UpdateSourceTrigger=PropertyChanged}"
                      Width="260" Height="40"
                      Margin="0 5"/>
 
@@ -289,11 +290,13 @@
                        Foreground="Silver"
                        FontWeight="SemiBold"
                        Margin="20 0 0 0"/>
+
             <ComboBox Style="{StaticResource ModernComboBox}"
                       Width="260"
                       Height="30"
                       Margin="0 5"
-                      ItemContainerStyle="{StaticResource ModernComboBoxItem}">
+                      ItemContainerStyle="{StaticResource ModernComboBoxItem}"
+                      SelectedValue="{Binding SelectedTransactionType}" SelectedValuePath="Content">
                 <ComboBoxItem Content="Доход"/>
                 <ComboBoxItem Content="Расход"/>
             </ComboBox>
@@ -311,9 +314,11 @@
             <TextBlock Text="Мои категории"
                        FontSize="16"
                        Foreground="White"
-                       FontWeight="Bold"/>
+                       FontWeight="Bold"
+                       Margin="10 0 0 0"/>
 
             <DataGrid x:Name="CategoriesDataGrid"
+                      ItemsSource="{Binding Categories}"
                       AutoGenerateColumns="False"
                       Style="{StaticResource MaterialDataGridStyle}"
                       ColumnHeaderStyle="{StaticResource MaterialDataGridColumnHeaderStyle}"
@@ -325,7 +330,8 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Название" 
                                         Binding="{Binding Name}"
-                                        Width="*"/>
+                                        Width="*"
+                                        CanUserSort="True"/>
                     <DataGridTextColumn Header="Тип" 
                                         Binding="{Binding Type}"
                                         Width="120"/>
